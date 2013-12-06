@@ -2,6 +2,7 @@
 
 nodes = {
     'keystone' => [1, 20],
+    'proxy'    => [1, 30],
 }
 
 Vagrant.configure("2") do |config|

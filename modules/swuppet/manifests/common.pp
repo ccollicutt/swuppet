@@ -1,6 +1,5 @@
 class swuppet::common {
 
-  # only run if needed
   exec { 'apt-get update':
     command => '/usr/bin/apt-get update',
     onlyif  => "/bin/sh -c '[ ! -f /var/cache/apt/pkgcache.bin ] || \
@@ -10,7 +9,7 @@ class swuppet::common {
 
 	package { ['ubuntu-cloud-keyring', ]:
     ensure  => installed,
-    require => Exec['apt-get update']
+    require => Exec['apt-get update'],
   }
 
 	apt::source { 'ubuntu-cloud-havana':
@@ -18,6 +17,6 @@ class swuppet::common {
   	release           => 'precise-updates/havana',
   	repos             => 'main',
   	required_packages => 'ubuntu-cloud-keyring',
-  	include_src 	      => false,
+  	include_src 	    => false,
 	}
 }
