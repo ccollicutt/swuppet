@@ -7,16 +7,19 @@ class swuppet::common {
     /bin/grep . > /dev/null'",
   }
 
-	package { ['ubuntu-cloud-keyring', ]:
+  $common_packages = ['ubuntu-cloud-keyring']
+
+  package { $common_packages:
     ensure  => installed,
     require => Exec['apt-get update'],
   }
 
-	apt::source { 'ubuntu-cloud-havana':
-  	location          => 'http://ubuntu-cloud.archive.canonical.com/ubuntu',
-  	release           => 'precise-updates/havana',
-  	repos             => 'main',
-  	required_packages => 'ubuntu-cloud-keyring',
-  	include_src 	    => false,
-	}
+  apt::source { 'ubuntu-cloud-havana':
+    location          => 'http://ubuntu-cloud.archive.canonical.com/ubuntu',
+    release           => 'precise-updates/havana',
+    repos             => 'main',
+    required_packages => 'ubuntu-cloud-keyring',
+    include_src       => false,
+    before            => Exec['apt-get update']
+  }
 }
