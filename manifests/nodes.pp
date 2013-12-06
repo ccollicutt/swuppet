@@ -1,10 +1,10 @@
 node 'base' {
 	include '::ntp'
-	#include swuppet::common
+	include swuppet::common
 }
 
 node 'swiftcommon' inherits 'base' {
-	include swupper::swiftcommon
+	include swuppet::swiftcommon
 }
 
 node 'keystone-01' inherits 'base' {

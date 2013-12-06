@@ -1,6 +1,6 @@
 name 'serverascode-swuppet'
 version '0.0.5'
-dependency 'puppetlabs/ntp'
+dependency 'puppetlabs/ntp', 'puppetlabs/apt'
 summary "Deploy OpenStack Swift"
 description 'Deploys OpenStack Swift'
 project_page 'http://github.com/curtisgithub/swuppet'
