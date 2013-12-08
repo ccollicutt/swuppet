@@ -1,8 +1,12 @@
-class swuppet::keystone {
-	
-	$keystone_packages = [ 'keystone', 'python-keyring', 'mysql-server', 'python-mysqldb']
+class swuppet::keystone (
+  $packages = $swuppet::params::keystone_packages
+) inherits swuppet::params {
 
-	package { $keystone_packages:
+  # is this where this goes?
+  #include swuppet::params
+
+	
+	package { $packages:
 		ensure => installed,
 	}
 }

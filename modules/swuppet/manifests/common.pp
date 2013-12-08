@@ -1,4 +1,10 @@
-class swuppet::common {
+class swuppet::common (
+  $packages = $swuppet::params::common_packages 
+  ) inherits swuppet::params {
+
+  # is this where this goes?
+  #include swuppet::params
+
 
   exec { 'apt-get update':
     command => '/usr/bin/apt-get update',
@@ -7,9 +13,7 @@ class swuppet::common {
     /bin/grep . > /dev/null'",
   }
 
-  $common_packages = ['ubuntu-cloud-keyring']
-
-  package { $common_packages:
+  package { $packages:
     ensure  => installed,
     require => Exec['apt-get update'],
   }
