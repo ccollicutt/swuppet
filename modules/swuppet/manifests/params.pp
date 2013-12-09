@@ -10,7 +10,11 @@ class swuppet::params {
 	# Swift common
 	# 
 
-	$keystone_packages = [ 'keystone', 'python-keyring', 'mysql-server', 'python-mysqldb']
+	$keystone_packages = [ 'keystone', 'python-keyring', 'mysql-client', 'python-mysqldb']
+
+	#
+	# Keystone
+	#
 
 
 }

@@ -2,10 +2,6 @@ class swuppet::common (
   $packages = $swuppet::params::common_packages 
   ) inherits swuppet::params {
 
-  # is this where this goes?
-  #include swuppet::params
-
-
   exec { 'apt-get update':
     command => '/usr/bin/apt-get update',
     onlyif  => "/bin/sh -c '[ ! -f /var/cache/apt/pkgcache.bin ] || \
